@@ -1,0 +1,344 @@
+:root {
+  color-scheme: light;
+  --bg: #f4efe8;
+  --bg-alt: #efe3d3;
+  --panel: rgba(255, 255, 255, 0.84);
+  --panel-border: rgba(85, 58, 32, 0.12);
+  --text: #2d2116;
+  --muted: #6f5b4c;
+  --accent: #c66b2f;
+  --accent-strong: #9d4e1d;
+  --danger: #a93b2d;
+  --success: #2d7a4f;
+  --shadow: 0 24px 80px rgba(68, 44, 20, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(198, 107, 47, 0.24), transparent 34%),
+    radial-gradient(circle at right 20%, rgba(157, 78, 29, 0.18), transparent 28%),
+    linear-gradient(145deg, var(--bg), var(--bg-alt));
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+.ambient {
+  position: fixed;
+  inset: auto;
+  border-radius: 999px;
+  filter: blur(40px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.ambient-one {
+  top: 3rem;
+  left: -2rem;
+  width: 12rem;
+  height: 12rem;
+  background: rgba(198, 107, 47, 0.24);
+}
+
+.ambient-two {
+  right: -1rem;
+  bottom: 4rem;
+  width: 16rem;
+  height: 16rem;
+  background: rgba(45, 122, 79, 0.16);
+}
+
+.app-shell {
+  width: min(920px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 4rem 0 3rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero {
+  max-width: 38rem;
+  animation: rise 600ms ease-out both;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.subtext {
+  margin: 1rem 0 0;
+  max-width: 34rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  animation: rise 700ms ease-out 80ms both;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.2rem 0 1rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.task-count {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
+.todo-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.8rem;
+}
+
+.todo-form input {
+  width: 100%;
+  border: 1px solid rgba(85, 58, 32, 0.18);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  padding: 1rem 1.1rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+}
+
+.todo-form input:focus {
+  border-color: rgba(198, 107, 47, 0.7);
+  box-shadow: 0 0 0 4px rgba(198, 107, 47, 0.14);
+}
+
+.primary-button,
+.ghost-button,
+.filter,
+.icon-button {
+  border-radius: 16px;
+  transition: transform 140ms ease, background-color 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  padding: 0.95rem 1.2rem;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(157, 78, 29, 0.24);
+}
+
+.primary-button:hover,
+.ghost-button:hover,
+.filter:hover,
+.icon-button:hover {
+  transform: translateY(-1px);
+}
+
+.ghost-button {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(85, 58, 32, 0.14);
+  color: var(--text);
+  padding: 0.8rem 1rem;
+}
+
+.filters {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 0.9rem;
+}
+
+.filter {
+  background: transparent;
+  border: 1px solid rgba(85, 58, 32, 0.12);
+  color: var(--muted);
+  padding: 0.7rem 1rem;
+}
+
+.filter.active {
+  background: rgba(198, 107, 47, 0.12);
+  border-color: rgba(198, 107, 47, 0.28);
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(85, 58, 32, 0.1);
+  animation: rise 280ms ease-out both;
+}
+
+.todo-check {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+
+.todo-check input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+}
+
+.checkmark {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 999px;
+  border: 2px solid rgba(85, 58, 32, 0.28);
+  background: #fff;
+  display: inline-block;
+  transition: background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.todo-check input:checked + .checkmark {
+  background: var(--success);
+  border-color: var(--success);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.todo-text {
+  font-size: 1rem;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.todo-item.completed .todo-text {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.icon-button {
+  padding: 0.65rem 0.9rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(85, 58, 32, 0.12);
+  color: var(--text);
+}
+
+.icon-button.delete-button {
+  color: var(--danger);
+}
+
+.todo-item.editing .todo-text {
+  outline: none;
+  border-bottom: 2px solid rgba(198, 107, 47, 0.35);
+}
+
+.empty-state {
+  margin: 1rem 0 0;
+  padding: 1rem 0.2rem 0.2rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 680px) {
+  .app-shell {
+    width: min(100% - 1rem, 920px);
+    padding-top: 2rem;
+  }
+
+  .panel {
+    padding: 1rem;
+    border-radius: 22px;
+  }
+
+  .panel-header,
+  .todo-form,
+  .todo-item {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-header {
+    display: grid;
+  }
+
+  .todo-actions {
+    justify-content: flex-start;
+  }
+}

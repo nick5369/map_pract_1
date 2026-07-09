@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo Forge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">Daily planning</p>
+      <h1>Todo Forge</h1>
+      <p class="subtext">Capture tasks, mark progress, and keep everything synced in your browser.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="todo-title">
+      <div class="panel-header">
+        <div>
+          <h2 id="todo-title">Tasks</h2>
+          <p id="task-count" class="task-count">0 items</p>
+        </div>
+        <button id="clear-completed" class="ghost-button" type="button">Clear completed</button>
+      </div>
+
+      <form id="todo-form" class="todo-form" autocomplete="off">
+        <label class="sr-only" for="todo-input">New task</label>
+        <input id="todo-input" name="todo" type="text" maxlength="120" placeholder="What needs to get done?" />
+        <button type="submit" class="primary-button">Add task</button>
+      </form>
+
+      <div class="filters" role="tablist" aria-label="Filter tasks">
+        <button class="filter active" type="button" data-filter="all">All</button>
+        <button class="filter" type="button" data-filter="active">Active</button>
+        <button class="filter" type="button" data-filter="completed">Completed</button>
+      </div>
+
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+      <p id="empty-state" class="empty-state">No tasks yet. Add one above to get started.</p>
+    </section>
+  </main>
+
+  <template id="todo-template">
+    <li class="todo-item">
+      <label class="todo-check">
+        <input type="checkbox" class="toggle" />
+        <span class="checkmark"></span>
+      </label>
+      <span class="todo-text"></span>
+      <div class="todo-actions">
+        <button type="button" class="icon-button edit-button">Edit</button>
+        <button type="button" class="icon-button delete-button">Delete</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
