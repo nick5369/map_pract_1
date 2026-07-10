@@ -2,8 +2,8 @@
   color-scheme: light;
   --bg: #eaf5ff;
   --bg-alt: #d9ecff;
-  --panel: rgba(255, 255, 255, 0.84);
-  --panel-border: rgba(85, 58, 32, 0.12);
+  --panel: rgba(247, 252, 255, 0.88);
+  --panel-border: rgba(59, 130, 246, 0.14);
   --text: #2d2116;
   --muted: #6f5b4c;
   --accent: #3b82f6;
@@ -112,6 +112,13 @@ h1 {
   box-shadow: var(--shadow);
   padding: 1.25rem;
   animation: rise 700ms ease-out 80ms both;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 90px rgba(68, 44, 20, 0.18);
+  border-color: rgba(59, 130, 246, 0.22);
 }
 
 .panel-header {
